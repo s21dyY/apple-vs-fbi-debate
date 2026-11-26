@@ -102,7 +102,24 @@ export const SOURCES = [
     cite: 'MacRumors. (2025, January 30). Apple\'s Q1 2025 earnings call takeaways.',
     url: 'https://www.macrumors.com/2025/01/30/apple-q1-2025-earnings-call-takeaways/',
   },
+  {
+    id: 'S19',
+    cite: 'Apple. (2024). Apple Platform Security guide: Passcodes and passwords (escalating delays, ~80 ms per attempt, erase after 10 failed attempts).',
+    url: 'https://support.apple.com/guide/security/passcodes-and-passwords-sec20230a10d/web',
+  },
 ];
+
+// Exhibit 3: what the iPhone's passcode protections do (S19)
+export const PASSCODE = {
+  msPerGuess: 80, // hardware key derivation, per attempt
+  maxGuesses: 10, // "Erase data" after 10 failed attempts
+  delayMinutes: [0, 0, 0, 0, 1, 5, 15, 15, 60], // delay before attempts 2..10
+  types: [
+    { id: '4d', label: '4-digit PIN', space: 1e4 },
+    { id: '6d', label: '6-digit PIN', space: 1e6 },
+    { id: '6a', label: '6 letters + numbers', space: 36 ** 6 },
+  ],
+};
 
 // Exhibit 1: FBI "going dark" count (S8)
 export const FBI_COUNT = {
@@ -129,14 +146,16 @@ export const TRANSPARENCY = [
   { label: 'Account requests', received: 15780, pct: 82 },
 ];
 
+export const ERAS = ['The order', 'What we learned', 'The world since'];
+
 export const TIMELINE = [
-  { date: 'Dec 2, 2015', text: 'San Bernardino attack, 14 killed (S2). Shooter\'s work iPhone 5C is recovered, locked.' },
-  { date: 'Feb 16, 2016', text: 'Magistrate Judge Sheri Pym orders Apple to help, under the All Writs Act of 1789 (S2).' },
-  { date: 'Feb 16, 2016', text: 'Tim Cook\'s open letter: "They have asked us to build a backdoor to the iPhone" (S1).' },
-  { date: 'Mar 28, 2016', text: 'DOJ drops the case: a third party got in, Apple\'s help "no longer" needed (S4).' },
-  { date: 'Mar 2018', text: 'DOJ Inspector General: FBI had not exhausted other options before suing (S5, S6).' },
-  { date: 'May 2018', text: 'FBI admits its count of locked phones (7,775) was inflated (S8).' },
-  { date: 'May 2020', text: 'FBI unlocks the Pensacola shooter\'s iPhones itself, again without a backdoor (S10).' },
-  { date: 'Oct-Dec 2024', text: 'Salt Typhoon hacks U.S. carriers; FBI and CISA tell Americans to use encryption (S12, S13).' },
-  { date: 'Feb-Aug 2025', text: 'UK secret backdoor order: Apple pulls Advanced Data Protection in the UK; UK drops the U.S. demand (S14).' },
+  { era: 0, date: 'Dec 2, 2015', text: 'San Bernardino attack, 14 killed (S2). Shooter\'s work iPhone 5C is recovered, locked.' },
+  { era: 0, date: 'Feb 16, 2016', text: 'Magistrate Judge Sheri Pym orders Apple to help, under the All Writs Act of 1789 (S2).' },
+  { era: 0, date: 'Feb 16, 2016', text: 'Tim Cook\'s open letter: "They have asked us to build a backdoor to the iPhone" (S1).' },
+  { era: 0, date: 'Mar 28, 2016', text: 'DOJ drops the case: a third party got in, Apple\'s help "no longer" needed (S4).' },
+  { era: 1, date: 'Mar 2018', text: 'DOJ Inspector General: FBI had not exhausted other options before suing (S5, S6).' },
+  { era: 1, date: 'May 2018', text: 'FBI admits its count of locked phones (7,775) was inflated (S8).' },
+  { era: 1, date: 'May 2020', text: 'FBI unlocks the Pensacola shooter\'s iPhones itself, again without a backdoor (S10).' },
+  { era: 2, date: 'Oct-Dec 2024', text: 'Salt Typhoon hacks U.S. carriers; FBI and CISA tell Americans to use encryption (S12, S13).' },
+  { era: 2, date: 'Feb-Aug 2025', text: 'UK secret backdoor order: Apple pulls Advanced Data Protection in the UK; UK drops the U.S. demand (S14).' },
 ];

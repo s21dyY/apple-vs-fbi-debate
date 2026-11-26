@@ -13,6 +13,7 @@ export const DEBATE_NOTES = {
     { value: '1789', fact: 'Year of the All Writs Act, the law behind the order', src: 'S2' },
     { value: '3 + signing', fact: 'Order: disable auto-erase, allow electronic passcodes, remove delays, deliver Apple-signed software', src: 'S3' },
     { value: '6 weeks', fact: 'Order (Feb 16) to DOJ dropping the case (Mar 28, 2016)', src: 'S2, S4' },
+    { value: '10 guesses vs. 13 min', fact: 'iPhone as shipped: 10 tries, delays, then erase. With the ordered tool: every 4-digit code in ~13 min, 6-digit in ~22 h (~80 ms/guess)', src: 'S19' },
     { value: '"90 percent"', fact: 'How close an outside vendor was to unlocking the phone when the FBI sued', src: 'S6' },
     { value: '~$900,000', fact: 'Reported FBI payment to Azimuth to unlock the phone; reportedly "nothing of value" on it', src: 'S7' },
     { value: '7,775 vs 1,000–2,000', fact: 'FBI\'s 2017 locked-phone claim vs. Washington Post estimate of the real number', src: 'S8' },
