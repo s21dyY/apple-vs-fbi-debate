@@ -813,6 +813,13 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, [next, prev, gotoIndex, mode, overlay]);
 
+  // Export helpers: ?export#n renders one bare, fully built slide; ?notes lists the speaker notes as JSON.
+  if (window.location.search.includes('export')) {
+    return <div className="export-view"><StaticSlide slide={SLIDES[pos.i]} i={pos.i} scale={1} /></div>;
+  }
+  if (window.location.search.includes('notes')) {
+    return <pre id="notes-json">{JSON.stringify(SLIDES.map((s) => ({ title: s.title || 'Title', notes: s.notes })))}</pre>;
+  }
   if (mode === 'print') return <PrintView onExit={() => setMode('present')} />;
   if (mode === 'drill') return <Practice onExit={() => setMode('present')} />;
 

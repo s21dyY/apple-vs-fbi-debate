@@ -362,3 +362,7 @@ kbd { display: inline-block; min-width: 26px; text-align: center; background: #1
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ---------- export (one bare slide, used to make the .pptx / .pdf) ---------- */
+.export-view { position: fixed; inset: 0; background: #fff; }
+.export-view .static-slide { border: 0; }
